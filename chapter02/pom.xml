@@ -11,4 +11,7 @@
     <artifactId>chapter02</artifactId>
     <packaging>pom</packaging>
     <description>组件使用</description>
+    <modules>
+        <module>section01</module>
+    </modules>
 </project>
