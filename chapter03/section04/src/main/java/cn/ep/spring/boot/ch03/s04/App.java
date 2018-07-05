@@ -50,7 +50,7 @@ public class App {
             log.info("");
 
             // fetch customers by last name
-            log.info("Customer found with findByLastName('Bauer'):");
+            log.info("Customers found with findByLastName('Bauer'):");
             log.info("--------------------------------------------");
             for (Customer bauer : customerMapper.findByLastName("Bauer")) {
                 log.info(bauer.toString());
