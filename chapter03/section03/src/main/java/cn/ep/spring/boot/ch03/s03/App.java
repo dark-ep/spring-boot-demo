@@ -23,8 +23,8 @@ public class App {
         return (args) -> {
             log.info("Creating tables");
 
-            jdbcTemplate.execute("DROP TABLE customers IF EXISTS");
-            jdbcTemplate.execute("CREATE TABLE customers(" + "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
+            jdbcTemplate.execute("DROP TABLE customer IF EXISTS");
+            jdbcTemplate.execute("CREATE TABLE customer(" + "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
 
             // Split up the array of whole names into an array of first/last names
             List<Object[]> splitUpNames = Stream.of("Jack Bauer", "Chloe O'Brian", "Kim Bauer", "David Palmer", "Michelle Dessler")
@@ -53,7 +53,7 @@ public class App {
             log.info("");
 
             // fetch customers by last name
-            log.info("Customer found with findByLastName('Bauer'):");
+            log.info("Customers found with findByLastName('Bauer'):");
             log.info("--------------------------------------------");
             for (Customer bauer : customerMapper.findByLastName("Bauer")) {
                 log.info(bauer.toString());
