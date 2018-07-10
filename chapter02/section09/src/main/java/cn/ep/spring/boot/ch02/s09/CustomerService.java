@@ -9,12 +9,8 @@ public class CustomerService {
 
     private static Logger logger = LoggerFactory.getLogger(CustomerService.class);
 
-    @CachePut(value = "test", key = "#id")
-    public Customer save(String id) {
-        Customer customer = new Customer();
-        customer.setId(id);
-        customer.setFirstName("a");
-        customer.setLastName("b");
+    @CachePut(value = "test", key = "#customer.id")
+    public Customer save(Customer customer) {
         logger.info("为id、key为:" + customer.getId() + "数据做了缓存");
         return customer;
     }
@@ -33,12 +29,8 @@ public class CustomerService {
      */
     @Cacheable(value = "test", key = "#id", sync = true)
     public Customer findOne(String id) {
-        Customer c = new Customer();
-        c.setId("1");
-        c.setFirstName("a");
-        c.setLastName("b");
-        logger.info("为id、key为:" + c.getId() + "数据做了缓存");
-        return c;
+        logger.info("为id、key为:" + id + "数据做了缓存");
+        return null;
     }
 
 }

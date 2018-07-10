@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,37 +19,40 @@ public class CustomerCacheTest {
     private CustomerService customerService;
 
     @Autowired
-    private RedisRepository redisRepository;
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Test
     public void testSave() {
         final String id = "1";
-        Customer customer = customerService.save(id);
-        Customer result = redisRepository.get(TEST + id, Customer.class);
+        Customer customer = customerService.save(new Customer().withId(id).withFirstName("Jack").withLastName("Bauer"));
+        Customer result = (Customer) redisTemplate.opsForValue().get(TEST + id);
         assertThat(result).isNotNull();
         assertThat(result.getId()).isEqualTo(customer.getId());
         assertThat(result.getFirstName()).isEqualTo(customer.getFirstName());
         assertThat(result.getLastName()).isEqualTo(customer.getLastName());
+        redisTemplate.delete(TEST + id);
     }
 
     @Test
     public void testDelete() {
         final String id = "1";
-        customerService.save(id);
+        customerService.save(new Customer().withId(id).withFirstName("Jack").withLastName("Bauer"));
         customerService.remove(id);
-        Customer result = redisRepository.get(TEST + id, Customer.class);
+        Customer result = (Customer) redisTemplate.opsForValue().get(TEST + id);
         assertThat(result).isNull();
     }
 
     @Test
     public void testFindOne() {
         final String id = "1";
+        customerService.save(new Customer().withId(id).withFirstName("Jack").withLastName("Bauer"));
         Customer customer = customerService.findOne(id);
-        Customer result = redisRepository.get(TEST + id, Customer.class);
+        Customer result = (Customer) redisTemplate.opsForValue().get(TEST + id);
         assertThat(result).isNotNull();
         assertThat(result.getId()).isEqualTo(customer.getId());
         assertThat(result.getFirstName()).isEqualTo(customer.getFirstName());
         assertThat(result.getLastName()).isEqualTo(customer.getLastName());
+        redisTemplate.delete(TEST + id);
     }
 
 }
