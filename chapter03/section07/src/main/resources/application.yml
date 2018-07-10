@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      custom:
+        hosts:
+          - ep.cn
+        ports:
+          - 27017
+        username: oper
+        password: oper
+        database: test
+        authentication-database: test
+        connections-per-host: 20
+        min-connections-per-host: 20
