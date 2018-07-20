@@ -1,0 +1,56 @@
+dn: dc=ep,dc=cn
+objectClass: top
+objectClass: domain
+
+dn: ou=people,dc=ep,dc=cn
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: uid=admin,ou=people,dc=ep,dc=cn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: admin
+sn: admin
+
+dn: uid=1,ou=people,dc=ep,dc=cn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Jack
+sn: Bauer
+
+dn: uid=2,ou=people,dc=ep,dc=cn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Chloe
+sn: O'Brian
+
+dn: uid=3,ou=people,dc=ep,dc=cn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Kim
+sn: Bauer
+
+dn: uid=4,ou=people,dc=ep,dc=cn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: David
+sn: Palmer
+
+dn: uid=5,ou=people,dc=ep,dc=cn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Michelle
+sn: Dessler
