@@ -3,15 +3,19 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-boot</artifactId>
+        <artifactId>chapter04</artifactId>
         <groupId>cn.ep</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>chapter04</artifactId>
-    <packaging>pom</packaging>
-    <description>Web操作</description>
-    <modules>
-        <module>section01</module>
-    </modules>
+    <artifactId>chapter04-section01</artifactId>
+    <packaging>war</packaging>
+    <description>简单web项目实现</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 </project>
