@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>chapter05-section07</artifactId>
     <packaging>jar</packaging>
-    <description>进行Rest测试</description>
+    <description>使用Mock进行Rest客户端测试</description>
 
     <dependencies>
         <dependency>
