@@ -28,6 +28,7 @@
         <curator.version>4.0.1</curator.version>
         <zookeeper.version>3.4.13</zookeeper.version>
         <swagger2.version>2.9.2</swagger2.version>
+        <shiro.version>1.4.0</shiro.version>
     </properties>
 
     <dependencies>
