@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.ep.spring.boot.ch07.s10.CustomAutoConfigure
